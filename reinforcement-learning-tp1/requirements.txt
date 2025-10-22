@@ -1,0 +1,12 @@
+numpy>=1.25.2
+matplotlib>=3.7.2
+tqdm>=4.66.1
+scipy>=1.11.0
+
+pytest>=7.4.1
+pytest-cov>=4.1.0
+mypy>=1.5.1
+ruff>=0.0.280
+
+jupyterlab>=4.0.5
+ipykernel>=6.25.0

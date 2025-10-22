@@ -1,0 +1,1 @@
+To test the library just do python -m pytest tests/test.py -v, the animationd are in /gifs
