@@ -38,7 +38,7 @@ n_actions = env.action_space.n  # type: ignore
 
 # You can edit these hyperparameters!
 agent = QLearningAgent(
-    learning_rate=0.5, epsilon=0.05, gamma=0.99, legal_actions=list(range(n_actions))
+    learning_rate=1, epsilon=0.05, gamma=0.99, legal_actions=list(range(n_actions))
 )
 
 
@@ -83,9 +83,9 @@ assert np.mean(rewards[-100:]) > 0.0
 
 env = RecordVideo(
     env,
-    video_folder="cartpole-agent",    # Folder to save videos
+    video_folder="Q-Learning",    # Folder to save videos
     name_prefix="eval",               # Prefix for video filenames
-    episode_trigger=lambda x: False  # Record every episode
+    episode_trigger=lambda x: x % 250 == 0 # Record every episode
 )
 #################################################
 # 2. Play with QLearningAgentEpsScheduling
@@ -93,7 +93,7 @@ env = RecordVideo(
 
 
 agent = QLearningAgentEpsScheduling(
-    learning_rate=0.5, epsilon=0.05, gamma=0.99, legal_actions=list(range(n_actions))
+    learning_rate=1, epsilon=0.05, gamma=0.99, legal_actions=list(range(n_actions))
 )
 
 rewards = []
@@ -106,6 +106,12 @@ assert np.mean(rewards[-100:]) > 0.0
 
 # TODO: créer des vidéos de l'agent en action
 
+env = RecordVideo(
+    env,
+    video_folder="qlearning_eps_scheduling",    # Folder to save videos
+    name_prefix="eval",               # Prefix for video filenames
+    episode_trigger=lambda x: x % 250 == 0 # Record every episode
+)
 
 ####################
 # 3. Play with SARSA
